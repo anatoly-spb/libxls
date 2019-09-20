@@ -38,16 +38,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include <errno.h>
 
-#include <memory.h>
-#include <math.h>
-#include <sys/types.h>
 #include <string.h>
 #include <wchar.h>
 
-#include "../include/libxls/endian.h"
-#include "../include/xls.h"
+#include "xls.h"
+#include "libxls/endian.h"
+#include "libxls/xlstool.h"
 
 #ifndef min
 #define min(a,b) ((a) < (b) ? (a) : (b))

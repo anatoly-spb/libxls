@@ -33,6 +33,9 @@
  *
  */
 
+#ifndef XLS_BRDB_H
+#define XLS_BRDB_H
+
 struct str_brdb
 {
     WORD opcode;
@@ -43,7 +46,7 @@ typedef struct str_brdb record_brdb;
 
 record_brdb brdb[] =
     {
-#include "../libxls/brdb.c.h"
+#include "libxls/brdb.c.h"
     };
 
 static int get_brbdnum(int id)
@@ -60,3 +63,4 @@ static int get_brbdnum(int id)
     while (brdb[i].opcode!=0xFFF);
     return 0;
 }
+#endif // XLS_BRDB_H

@@ -35,8 +35,6 @@
 
 #include "config.h"
 
-#include <math.h>
-#include <sys/types.h>
 #include <wchar.h>
 #include <stdio.h>
 
@@ -55,15 +53,12 @@ static const char *from_enc = "UTF-16LE";
 
 #include <stdlib.h>
 #include <errno.h>
-#include <memory.h>
 #include <string.h>
 
-//#include "xls.h"
-#include "../include/libxls/xlstypes.h"
-#include "../include/libxls/xlsstruct.h"
-#include "../include/libxls/xlstool.h"
-#include "../include/libxls/brdb.h"
-#include "../include/libxls/endian.h"
+#include "libxls/xlstypes.h"
+#include "libxls/xlsstruct.h"
+#include "libxls/xlstool.h"
+#include "libxls/brdb.h"
 
 extern int xls_debug;
 

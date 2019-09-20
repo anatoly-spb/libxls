@@ -1,0 +1,6 @@
+#ifndef TEST_FILES_H
+#define TEST_FILES_H
+
+#define XLS_TEST_FILE "@XLS_TEST_FILE@"
+
+#endif

@@ -35,10 +35,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 
-#include "../include/xls.h"
+#include "xls.h"
+
+#include "files.h"
 
 int main(int argc, char *argv[])
 {
@@ -51,9 +51,8 @@ int main(int argc, char *argv[])
     xls_error_t code = LIBXLS_OK;
     struct st_row_data* row;
     WORD t,tt;
-    char *srcdir = getenv("srcdir");
     char path[2048];
-    snprintf(path, sizeof(path), "%s/test/files/test2.xls", srcdir ? srcdir : ".");
+    snprintf(path, sizeof(path), XLS_TEST_FILE);
     pWB=xls_open_file(path, "UTF-8", &code);
 
     if (pWB == NULL) {

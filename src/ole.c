@@ -35,15 +35,13 @@
 
 #include "config.h" 
 
-#include <memory.h>
-#include <math.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/libxls/ole.h"
-#include "../include/libxls/xlstool.h"
-#include "../include/libxls/endian.h"
+#include "libxls/ole.h"
+#include "libxls/xlstool.h"
+#include "libxls/endian.h"
 
 extern int xls_debug;
 

@@ -40,7 +40,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "../include/xls.h"
+#include "xls.h"
 
 int main(int argc, char *argv[])
 {

@@ -41,7 +41,6 @@
 #else
 #include <stdint.h>
 #endif
-#include <sys/types.h>
 
 typedef unsigned char		BYTE;
 typedef uint16_t			WORD;

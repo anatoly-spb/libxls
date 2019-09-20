@@ -1,0 +1,85 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(xls LANGUAGES C)
+
+set(XLS_VERSION_MAJOR 1)
+set(XLS_VERSION_MINOR 5)
+set(XLS_VERSION_REV   1)
+
+configure_file(
+	config.h.in 
+	${CMAKE_CURRENT_BINARY_DIR}/config.h
+	@ONLY
+)
+
+set(HEADERS 
+	include/xls.h
+	include/libxls/brdb.h
+	include/libxls/endian.h
+	include/libxls/ole.h
+	include/libxls/xlsstruct.h
+	include/libxls/xlstool.h
+	include/libxls/xlstypes.h
+)
+if (MSVC)
+	list(APPEND HEADERS
+		include/libxls/windows/unistd.h
+	)
+endif()
+
+set(SOURCES
+	config.h.in
+	${CMAKE_CURRENT_BINARY_DIR}/config.h
+	src/endian.c
+	src/ole.c
+	src/xls.c
+	src/xlstool.c
+)
+
+###################################################################
+
+add_library(xls
+	${HEADERS}
+	${SOURCES}
+)
+set_property(TARGET xls PROPERTY C_STANDARD 99)
+target_include_directories(xls 
+	PRIVATE ${CMAKE_CURRENT_BINARY_DIR} 
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} 
+	PRIVATE include
+) 
+if (MSVC)
+	target_include_directories(xls 
+		SYSTEM BEFORE PUBLIC include/libxls/windows
+	)
+endif()
+
+###################################################################
+
+enable_testing()
+
+find_file(XLS_TEST_FILE NAMES test2.xls PATHS test/files NO_DEFAULT_PATH)
+
+configure_file(
+	test/files.h.in 
+	${CMAKE_CURRENT_BINARY_DIR}/files.h
+	@ONLY
+)
+
+add_executable(xlstest 
+	test/files.h.in
+	${CMAKE_CURRENT_BINARY_DIR}/files.h
+	test/test.c
+)
+set_property(TARGET xlstest PROPERTY C_STANDARD 99)
+target_include_directories(xlstest 
+	PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+	PRIVATE include
+) 
+target_link_libraries(xlstest xls)
+add_test(NAME ctest_xlstest COMMAND xlstest)
+
+###################################################################
+
+install(TARGETS xls ARCHIVE DESTINATION lib)
+install(DIRECTORY include/ DESTINATION include)
