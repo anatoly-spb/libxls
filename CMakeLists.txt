@@ -1,10 +1,6 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.12)
 
-project(xls LANGUAGES C)
-
-set(XLS_VERSION_MAJOR 1)
-set(XLS_VERSION_MINOR 5)
-set(XLS_VERSION_REV   1)
+project(xls LANGUAGES C VERSION 1.5.1)
 
 configure_file(
 	config.h.in 
