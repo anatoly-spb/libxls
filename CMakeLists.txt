@@ -34,7 +34,7 @@ target_include_directories(xls
 ) 
 if (MSVC)
 	target_sources(xls
-		include/libxls/windows/unistd.h
+		PUBLIC include/libxls/windows/unistd.h
 	)
 	target_include_directories(xls 
 		SYSTEM BEFORE PUBLIC include/libxls/windows
