@@ -1,0 +1,7 @@
+#ifndef XLS_CONFIG_H
+#define XLS_CONFIG_H
+
+#define PACKAGE_VERSION "@CMAKE_PROJECT_VERSION@"
+
+#endif
+
