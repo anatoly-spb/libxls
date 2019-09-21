@@ -36,7 +36,6 @@
 #ifndef XLS_OLE_INCLUDE
 #define XLS_OLE_INCLUDE
 
-#include <unistd.h>
 #ifdef __cplusplus
 #include <cstdio>			// FILE *
 #else
@@ -49,6 +48,12 @@
 #pragma pack(1)
 #else
 #pragma pack(push, 1)
+#endif
+
+#ifdef _WIN64
+#define ssize_t __int64
+#else
+#define ssize_t long
 #endif
 
 typedef struct TIME_T
