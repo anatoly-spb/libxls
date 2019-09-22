@@ -57,7 +57,7 @@ add_test(NAME ctest_xlstest COMMAND xlstest)
 ###################################################################
 
 install(TARGETS xls EXPORT xls-targets DESTINATION lib)
-install(DIRECTORY include DESTINATION include)
+install(DIRECTORY include/ DESTINATION include)
 install(EXPORT xls-targets DESTINATION cmake)
 
 
